@@ -4,73 +4,75 @@ import no.hvl.dat100ptc.TODO;
 
 public class GPSPoint {
 
-	// TODO - objektvariable
+	//a)
+	private int time; //tid i sekunder 
+	private double latitude; //breddegrad
+	private double longitude; //lengdegrad
+	private double elevation; //høyde i meter
 	
 	public GPSPoint(int time, double latitude, double longitude, double elevation) {
 
-		// TODO - konstruktur
-
-		throw new UnsupportedOperationException(TODO.construtor("GPSPoint"));
+		this.time = time;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.elevation = elevation; 
 		
 	}
 
-	// TODO - get/set metoder
+	//b) 
 	public int getTime() {
-		
-		throw new UnsupportedOperationException(TODO.method());
+		return time; //getter 
 		
 	}
 
 	public void setTime(int time) {
-				
-		throw new UnsupportedOperationException(TODO.method());
+		this.time = time; //setter
 		
 	}
 
 	public double getLatitude() {
-		
-		throw new UnsupportedOperationException(TODO.method());
+		return latitude; 
 		
 		
 	}
 
 	public void setLatitude(double latitude) {
 		
-		throw new UnsupportedOperationException(TODO.method());
+		this.latitude = latitude;
 		
 	}
 
 	public double getLongitude() {
 		
-		throw new UnsupportedOperationException(TODO.method());
+		return longitude;
 		
 	}
 
 	public void setLongitude(double longitude) {
 		
-		throw new UnsupportedOperationException(TODO.method());
+		this.longitude = longitude;
 		
 	}
 
 	public double getElevation() {
 		
-		throw new UnsupportedOperationException(TODO.method());
+		return elevation;
 		
 	}
 
 	public void setElevation(double elevation) {
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
+		this.elevation = elevation;		
 	}
 	
+	
+	//c
 	public String toString() {
 		
-		String str;
+		String str = time + " (" + latitude + "," + longitude + ") " + elevation + "\n";
 		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO
+		return str;
+		// toString()-metode som returnerer 1 (2.0,3.0) 5.0\n i følge oppgaven
 		
+		//oppgave d er i Main.java
 	}
 }
