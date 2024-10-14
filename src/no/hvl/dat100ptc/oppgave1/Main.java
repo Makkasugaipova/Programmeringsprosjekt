@@ -19,7 +19,5 @@ public class Main {
 		
 		//toString 
 		System.out.println("Informasjon om GPSPoint: " + point.toString());
-		
 	}
-
 }
