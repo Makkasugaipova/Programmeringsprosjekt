@@ -135,7 +135,7 @@ Return - den største hastigheten.
 	    /*
 totalDistance() = beregne total distanse i meter.
 totalTime() = beregne total tid i sekunder.
-Gjennomsnittshastigheten = totale distansen delt på den totale tiden.
+Gjennomsnittshastigheten er ganske enkelt den totale distansen delt på den totale tiden.
 Resultatet returneres som gjennomsnittshastighet i meter per sekund (m/s).
 	     */
 	}
