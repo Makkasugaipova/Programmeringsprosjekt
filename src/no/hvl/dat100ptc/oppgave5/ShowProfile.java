@@ -42,15 +42,25 @@ public class ShowProfile extends EasyGraphics {
 		showHeightProfile(MARGIN + MAXBARHEIGHT); 
 	}
 
-	public void showHeightProfile(int ybase) {
-		
-		int x = MARGIN; // første høyde skal tegnes ved MARGIN
-		int y;
-		
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
-		
+    public void showHeightProfile(int ybase) {
+        int x = MARGIN; // x-aksen
 
-	}
+        for (int i = 0; i < gpspoints.length; i++) {
+            int height = (int) gpspoints[i].getElevation(); // hent høyde
 
+            // Dersom høyden er da negativ settes den til 0
+            if (height < 0) {
+                height = 0;
+            }
+
+
+            if (height > MAXBARHEIGHT) {
+                height = MAXBARHEIGHT;
+            }
+
+            drawLine(x, ybase, x, ybase - height);
+
+            x += 3; 
+        }
+    }
 }

@@ -64,28 +64,54 @@ public class ShowRoute extends EasyGraphics {
 
 	public void showRouteMap(int ybase) {
 
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
-		
+	    setColor(0, 0, 255);
+
+	    for (int i = 0; i < gpspoints.length - 1; i++) {
+	        // Hent GPS-koordinatene for to påfølgende punkter
+	        int x1 = MARGIN + (int)((gpspoints[i].getLongitude() - minlon) * xstep);
+	        int y1 = ybase - (int)((gpspoints[i].getLatitude() - minlat) * ystep);
+	        int x2 = MARGIN + (int)((gpspoints[i + 1].getLongitude() - minlon) * xstep);
+	        int y2 = ybase - (int)((gpspoints[i + 1].getLatitude() - minlat) * ystep);
+
+	        drawLine(x1, y1, x2, y2);
+	    }
 	}
 
 	public void showStatistics() {
+	    int TEXTDISTANCE = 20;
 
-		int TEXTDISTANCE = 20;
+	    // Hent statistikk fra GPSComputer
+	    double totalDistance = gpscomputer.totalDistance(); // Total distanse i km
+	    double totalElevation = gpscomputer.totalElevation(); // Total stigning i meter
+	    double totalTime = gpscomputer.totalTime(); // Total tid i sekunder
+	    double avgSpeed = gpscomputer.averageSpeed(); // Gjennomsnittshastighet i km/t
 
-		setColor(0,0,0);
-		setFont("Courier",12);
-		
-		// TODO
-		throw new UnsupportedOperationException(TODO.method());
-		
+	    // Vis statistikken i vinduet
+	    setColor(0, 0, 0); // Svart farge for tekst
+	    setFont("Courier", 12);
+
+	    drawString("Total distance: " + String.format("%.2f", totalDistance) + " km", MARGIN, TEXTDISTANCE);
+	    drawString("Total elevation: " + String.format("%.2f", totalElevation) + " m", MARGIN, TEXTDISTANCE + 20);
+	    drawString("Total time: " + String.format("%.2f", totalTime) + " s", MARGIN, TEXTDISTANCE + 40);
+	    drawString("Average speed: " + String.format("%.2f", avgSpeed) + " km/h", MARGIN, TEXTDISTANCE + 60);
 	}
+
 
 	public void replayRoute(int ybase) {
 
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
-		
-	}
+	    setColor(255, 0, 0); // Rød farge for å vise ruten "replay"
 
+	    for (int i = 0; i < gpspoints.length - 1; i++) {
+
+	        int x1 = MARGIN + (int)((gpspoints[i].getLongitude() - minlon) * xstep);
+	        int y1 = ybase - (int)((gpspoints[i].getLatitude() - minlat) * ystep);
+	        int x2 = MARGIN + (int)((gpspoints[i + 1].getLongitude() - minlon) * xstep);
+	        int y2 = ybase - (int)((gpspoints[i + 1].getLatitude() - minlat) * ystep);
+
+	        drawLine(x1, y1, x2, y2);
+
+	        pause(100); 
+	    }
+	}
 }
+
