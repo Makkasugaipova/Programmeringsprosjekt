@@ -138,7 +138,6 @@ public class GPSUtils {
 
 		String str;
 
-		
 		return String.format("%" + TEXTWIDTH + ".2f", d);
 	}
 }
