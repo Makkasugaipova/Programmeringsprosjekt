@@ -172,11 +172,21 @@ Resultatet returneres som gjennomsnittshastighet i meter per sekund (m/s).
 	}
 
 	public double totalKcal(double weight) {
-
-		double totalkcal = 0;
-
-		;
 		
+		double[] speeds = speeds();
+		
+
+		double totalkcal = 0.0;
+
+		for (int i = 0; i < speeds.length - 1; i++) {
+			int timeDiff = gpspoints[i + 1].getTime() - gpspoints[i].getTime();
+			double segmentKcal = kcal(weight, timeDiff, speeds[i]);
+			totalkcal += segmentKcal; 
+		};
+		
+		return totalkcal;
+		
+	
 	}
 	
 	private static double WEIGHT = 80.0;
