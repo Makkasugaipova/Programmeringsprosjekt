@@ -193,8 +193,27 @@ Resultatet returneres som gjennomsnittshastighet i meter per sekund (m/s).
 	
 	public void displayStatistics() {
 
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
+		int totalTime = totalTime(); 
+	    double totalDistance = totalDistance(); 
+	    double totalElevation = totalElevation(); 
+	    double maxSpeed = maxSpeed(); 
+	    double averageSpeed = averageSpeed(); 
+	    double energy = totalKcal(80.0);
+	    
+	    String formattedTime = String.format("%02d:%02d:%02d", 
+	            totalTime / 3600, 
+	            (totalTime % 3600) / 60, 
+	            totalTime % 60
+	        );
+	    
+	    System.out.println("==============================================");
+	    System.out.printf("Total Time     :   %s\n", formattedTime);
+	    System.out.printf("Total distance :   %8.2f km\n", totalDistance);
+	    System.out.printf("Total elevation:   %8.2f m\n", totalElevation);
+	    System.out.printf("Max speed      :   %8.2f km/t\n", maxSpeed);
+	    System.out.printf("Average speed  :   %8.2f km/t\n", averageSpeed);
+	    System.out.printf("Energy         :   %8.2f kcal\n", energy);
+	    System.out.println("==============================================");
 		
 	}
 
