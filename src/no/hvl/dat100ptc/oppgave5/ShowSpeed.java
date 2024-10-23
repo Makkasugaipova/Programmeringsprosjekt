@@ -39,10 +39,23 @@ public class ShowSpeed extends EasyGraphics {
 	
 	public void showSpeedProfile(int ybase) {
 		
-		int x = MARGIN,y;
-	
-		// TODO
-		throw new UnsupportedOperationException(TODO.method());
+		double[] speeds = gpscomputer.speeds();  // henter speeds fra GPS data 
+        double maxSpeed = gpscomputer.maxSpeed();  // Maksimal hastighet for skalering av søylene
+        int x = MARGIN;
+
+        // Loop gjennom alle hastighetene og tegner en søyle for hver hastighet
+        for (double speed : speeds) {
+            // Skalerer søylehøyden basert på maksimal hastighet
+            int barHeight = (int) (speed / maxSpeed * BARHEIGHT);
+            
+            // blå farge
+            setColor(0, 0, 255);  
+
+            fillRectangle(x, ybase - barHeight, 2, barHeight);
+            
+            //x posisjon
+            x += 3;
+        }
 		
 	}
 }
